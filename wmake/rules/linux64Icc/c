@@ -2,7 +2,7 @@
 
 cWARN        =
 
-cc          = icc
+cc          = mpicc
 
 include $(RULES)/c$(WM_COMPILE_OPTION)
 

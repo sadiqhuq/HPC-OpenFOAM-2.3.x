@@ -86,11 +86,11 @@ Linux)
         64)
             WM_ARCH=linux64
             export WM_COMPILER_LIB_ARCH=64
-            export WM_CC='gcc'
-            export WM_CXX='g++'
-            export WM_CFLAGS='-m64 -fPIC'
-            export WM_CXXFLAGS='-m64 -fPIC'
-            export WM_LDFLAGS='-m64'
+            export WM_CC='mpicc'
+            export WM_CXX='mpicxx'
+            export WM_CFLAGS='-O3 -fPIC -DMPI_NO_CPPBIND'
+            export WM_CXXFLAGS='-O3 -fPIC'
+            export WM_LDFLAGS='-O3'
             ;;
         *)
             echo "Unknown WM_ARCH_OPTION '$WM_ARCH_OPTION', should be 32 or 64" 1>&2
