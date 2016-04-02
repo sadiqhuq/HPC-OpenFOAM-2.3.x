@@ -66,11 +66,11 @@ case Linux:
         case 64:
             setenv WM_ARCH linux64
             setenv WM_COMPILER_LIB_ARCH 64
-            setenv WM_CC 'gcc'
-            setenv WM_CXX 'g++'
-            setenv WM_CFLAGS '-m64 -fPIC'
-            setenv WM_CXXFLAGS '-m64 -fPIC'
-            setenv WM_LDFLAGS '-m64'
+            setenv WM_CC 'mpicc'
+            setenv WM_CXX 'mpicxx'
+            setenv WM_CFLAGS '-O3 -fPIC -DMPI_NO_CPPBIND'
+            setenv WM_CXXFLAGS '-O3 -fPIC'
+            setenv WM_LDFLAGS '-O3'
             breaksw
 
         default:

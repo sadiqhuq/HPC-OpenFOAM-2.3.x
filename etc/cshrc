@@ -41,7 +41,8 @@ setenv WM_PROJECT_VERSION 2.3.x
 #
 # Location of the OpenFOAM installation
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-set foamInstall = $HOME/$WM_PROJECT
+setenv WORK /pd/data/table
+set foamInstall = $WORK/$WM_PROJECT
 # set foamInstall = ~$WM_PROJECT
 # set foamInstall = /opt/$WM_PROJECT
 # set foamInstall = /usr/local/$WM_PROJECT
@@ -62,7 +63,7 @@ setenv foamCompiler system
 
 #- Compiler:
 #    WM_COMPILER = Gcc | Gcc45 | Gcc46 | Gcc47 | Clang | Icc (Intel icc)
-setenv WM_COMPILER Gcc
+setenv WM_COMPILER Icc
 setenv WM_COMPILER_ARCH # defined but empty
 unsetenv WM_COMPILER_LIB_ARCH
 
@@ -81,7 +82,7 @@ setenv WM_COMPILE_OPTION Opt
 #- MPI implementation:
 #    WM_MPLIB = SYSTEMOPENMPI | OPENMPI | MPICH | MPICH-GM | HPMPI
 #               | GAMMA | MPI | QSMPI | SGIMPI
-setenv WM_MPLIB OPENMPI
+setenv WM_MPLIB INTELMPI
 
 #- Operating System:
 #    WM_OSTYPE = POSIX | ???
@@ -101,7 +102,7 @@ setenv FOAM_SIGFPE
 # The old dirs to be cleaned from the various environment variables
 # - remove anything under top-level directory.
 # NB: the WM_PROJECT_INST_DIR might not be identical between versions
-set foamOldDirs="$FOAM_INST_DIR $HOME/$WM_PROJECT/$LOGNAME"
+set foamOldDirs="$FOAM_INST_DIR $WORK/$WM_PROJECT/$LOGNAME"
 if ( $?WM_PROJECT_INST_DIR ) then
     if ( "$WM_PROJECT_INST_DIR" != "$FOAM_INST_DIR" ) then
         set foamOldDirs="$WM_PROJECT_INST_DIR $foamOldDirs"
@@ -130,7 +131,7 @@ endif
 
 # Location of user files
 # ~~~~~~~~~~~~~~~~~~~~~~
-setenv WM_PROJECT_USER_DIR $HOME/$WM_PROJECT/$LOGNAME-$WM_PROJECT_VERSION
+setenv WM_PROJECT_USER_DIR $WORK/$WM_PROJECT/$LOGNAME-$WM_PROJECT_VERSION
 
 
 # Source files, possibly with some verbosity
